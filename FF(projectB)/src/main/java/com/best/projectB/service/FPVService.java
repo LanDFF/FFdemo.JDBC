@@ -107,7 +107,7 @@ public class FPVService {
         FPV fpv1 = fpvRepository.findById(id).orElse(null);
 
         if (fpv1 == null) {
-            throw new RuntimeException("数据不存在");
+            throw new RuntimeException("数据不存在!");
         }
 
         return fpvRepository.updateNameById(name,id);
