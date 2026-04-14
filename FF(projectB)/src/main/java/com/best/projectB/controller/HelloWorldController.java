@@ -18,6 +18,8 @@ public class HelloWorldController {
 
     @Autowired
     private FPVService service;
+    @Autowired
+    private FPVRepository fPVRepository;
 
 
     @GetMapping("hello")
@@ -49,7 +51,25 @@ public class HelloWorldController {
 
     @PutMapping("fpv/edit")
     public String updateFPVById(@RequestBody FPVEditDto dto){
+
         return service.updateFPV(dto);
+    }
+
+
+
+    @GetMapping("fpv/all")
+    public List<FPV> getAll(){
+        return service.selectAll();
+    }
+
+    @GetMapping("fpv/one/id")
+    public FPV getAll(@RequestParam Long id){
+        return service.selectOneNyId(id);
+    }
+
+    @PutMapping("fpv/edit/id")
+    public String edit(@RequestBody Long id){
+        return null;
     }
 
 

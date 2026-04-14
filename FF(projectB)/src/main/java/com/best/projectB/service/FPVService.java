@@ -83,5 +83,35 @@ public class FPVService {
 
     }
 
+    public FPV findOneById(Long id){
+        FPV fpv = null;
+
+        if (fpv == null) {
+            throw new RuntimeException("id" + id + "数据不存在!");
+
+        }
+        return fpv;
+    }
+
+    public List<FPV> selectAll(){
+        return fpvRepository.selectAll();
+    }
+
+    public FPV selectOneNyId(Long id){
+        return fpvRepository.selectExistedById(id);
+    }
+
+    public int updateNameById(FPV fpv){
+        Long id = fpv.getId();
+        String name = fpv.getName();
+        FPV fpv1 = fpvRepository.findById(id).orElse(null);
+
+        if (fpv1 == null) {
+            throw new RuntimeException("数据不存在!");
+        }
+
+        return fpvRepository.updateNameById(name,id);
+    }
+
 
 }
