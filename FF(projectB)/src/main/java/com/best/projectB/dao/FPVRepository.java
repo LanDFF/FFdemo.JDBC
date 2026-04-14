@@ -22,7 +22,10 @@ public interface FPVRepository extends JpaRepository<FPV, Long>, JpaSpecificatio
 
     @Transactional
     @Modifying(clearAutomatically = true)
-    @Query(value = "update fpv_01 SET existed = ? where id = ?2")
+    @Query(value = "update fpv_01 SET existed = ?1 where id = ?2")
     public int updateNameById(String name,Long id);
+
+    @Query(value = "select * from fpv_01 where id = ? and existed = 0",nativeQuery = true)
+    public FPV findOnById(Long id);
 
 }

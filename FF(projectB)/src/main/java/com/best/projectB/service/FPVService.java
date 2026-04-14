@@ -84,7 +84,7 @@ public class FPVService {
     }
 
     public FPV findOneById(Long id){
-        FPV fpv = null;
+        FPV fpv = findOneById(id);
 
         if (fpv == null) {
             throw new RuntimeException("id" + id + "数据不存在!");
