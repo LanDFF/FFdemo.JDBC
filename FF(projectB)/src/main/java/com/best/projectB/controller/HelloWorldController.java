@@ -6,9 +6,12 @@ import com.best.projectB.dto.FPVEditDto;
 import com.best.projectB.entity.FPV;
 import com.best.projectB.service.FPVService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
@@ -18,13 +21,13 @@ public class HelloWorldController {
 
     @Autowired
     private FPVService service;
-    @Autowired
-    private FPVRepository fPVRepository;
 
 
     @GetMapping("hello")
-    public String getHello(){
-        return "hello world!";
+    public Map<String,String> getHello(){
+        Map<String,String> map = new HashMap<>();
+        map.put("data","hello world");
+        return map;
     }
 
 
@@ -53,6 +56,13 @@ public class HelloWorldController {
     public String updateFPVById(@RequestBody FPVEditDto dto){
 
         return service.updateFPV(dto);
+    }
+
+
+    @GetMapping("fpv/one")
+    @CrossOrigin(origins = "*")
+    public FPV findOneById(@RequestParam Long id) {
+        return service.findOneById(id);
     }
 
 
