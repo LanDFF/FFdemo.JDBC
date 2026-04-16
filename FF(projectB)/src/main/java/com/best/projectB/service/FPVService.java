@@ -57,7 +57,7 @@ public class FPVService {
 
     }
 
-    public String creatFPV(FPVDto dto){
+    public String createFPV(FPVDto dto){
         FPV fpv = new FPV();
 
         fpv.setName(dto.getName());

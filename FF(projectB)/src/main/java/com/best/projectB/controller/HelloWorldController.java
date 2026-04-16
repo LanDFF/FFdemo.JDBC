@@ -1,19 +1,16 @@
 package com.best.projectB.controller;
 
-import com.best.projectB.dao.FPVRepository;
 import com.best.projectB.dto.FPVDto;
 import com.best.projectB.dto.FPVEditDto;
 import com.best.projectB.entity.FPV;
 import com.best.projectB.service.FPVService;
+import com.best.projectB.utils.JsonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @RestController
 public class HelloWorldController {
@@ -26,7 +23,7 @@ public class HelloWorldController {
     @GetMapping("hello")
     public Map<String,String> getHello(){
         Map<String,String> map = new HashMap<>();
-        map.put("data","hello world");
+        map.put("key","hello world");
         return map;
     }
 
@@ -46,8 +43,8 @@ public class HelloWorldController {
     }
 
     @PostMapping("fpv/create")
-    public String createFPV(@RequestBody FPVDto dto){
-        return service.creatFPV(dto);
+    public JsonResponse createFPV(@RequestBody FPVDto dto){
+        return new JsonResponse().OK(() -> service.createFPV(dto));
 
     }
 
