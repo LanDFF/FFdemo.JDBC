@@ -51,4 +51,14 @@ public class FPV {
     public void setExisted(String existed) {
         this.existed = existed;
     }
+
+    @Override
+    public String toString() {
+        return "FPV{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", fc='" + fc + '\'' +
+                ", existed='" + existed + '\'' +
+                '}';
+    }
 }

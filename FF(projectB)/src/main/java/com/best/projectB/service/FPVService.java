@@ -31,6 +31,15 @@ public class FPVService {
 
     public List<FPVEditDto> getAll(List<FPV> fpv){
 
+        List<FPVEditDto> dtos = new ArrayList<>();
+        for (int i = 0;i < fpv.size(); i++){
+            FPVEditDto dto = new FPVEditDto();
+
+            dto.setId(fpv.get(i).getId());
+            dto.setName(fpv.get(i).getName());
+
+        }
+
 
         
         return fpv.stream().map(value -> {

@@ -1,6 +1,6 @@
 package com.best.projectB.utils;
 
-import com.demo.testProject.entity.FPV;
+import com.best.projectB.entity.FPV;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -13,11 +13,11 @@ public class JDBCFPV {
 
         List<FPV> list = jdbcfpv.execute();
 
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i).id);
-            System.out.println(list.get(i).name);
-            System.out.println(list.get(i).FC);
-        }
+//        for (int i = 0; i < list.size(); i++) {
+//            System.out.println(list.get(i).id);
+//            System.out.println(list.get(i).name);
+//            System.out.println(list.get(i).FC);
+//        }
     }
 
     public static List<FPV> getList() throws SQLException {
@@ -54,7 +54,7 @@ public class JDBCFPV {
                 FPV fpv = new FPV();
                 fpv.setId(id);
                 fpv.setName(name);
-                fpv.setFC(FC);
+//                fpv.setFC(FC);
 
                 list.add(fpv);
             }
