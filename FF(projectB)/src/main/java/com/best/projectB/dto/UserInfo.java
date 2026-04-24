@@ -1,4 +1,4 @@
-package com.best.projectB.controller;
+package com.best.projectB.dto;
 
 public class UserInfo {
 
