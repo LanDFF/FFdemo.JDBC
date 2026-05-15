@@ -19,13 +19,13 @@ public class FPVController {
     @Autowired
     private FPVService service;
 
-
-    @GetMapping("hello")
-    public Map<String,String> getHello(){
-        Map<String,String> map = new HashMap<>();
-        map.put("key","hello world");
-        return map;
-    }
+//
+//    @GetMapping("hello")
+//    public Map<String,String> getHello(){
+//        Map<String,String> map = new HashMap<>();
+//        map.put("key","hello world");
+//        return map;
+//    }
 
 
     @GetMapping("fpvs")
